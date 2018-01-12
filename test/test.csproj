@@ -42,8 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBotazok.cs" />
+    <Compile Include="moznost.cs" />
+    <Compile Include="otazka.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="quiz.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
