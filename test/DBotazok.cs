@@ -13,7 +13,7 @@ namespace test
         {
             singleotazka o = new singleotazka();
             o.text = "kolko je 1+1?";
-            o.moznosti = new moznost[]
+            o.Moznosti = new moznost[]
             {
                 new moznost("1",false),
                 new moznost("2",true),
@@ -23,7 +23,7 @@ namespace test
             {
                 multipleotazka m = new multipleotazka();
                 m.text = "co je cislo?";
-                m.moznosti = new moznost[]
+                m.Moznosti = new moznost[]
                 {
                 new moznost("oznac ano",false),
                 new moznost("2",true),
@@ -34,7 +34,7 @@ namespace test
             {
                 o = new singleotazka();
                 o.text = "kolko je 1+2?";
-                o.moznosti = new moznost[]
+                o.Moznosti = new moznost[]
                 {
                 new moznost("1",false),
                 new moznost("2",false),

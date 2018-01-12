@@ -10,6 +10,8 @@ namespace test
     {
         static void Main(string[] args)
         {
+            quiz q = new quiz();
+            q.spustquiz();
         }
     }
 }
