@@ -33,34 +33,51 @@ namespace test
         {
             foreach (otazka o in otazky)
             {
+                string uzivodpoved;
                 o.vypisotazku();
+                int[] poleuzivatelskychindexov;
                 do
                 {
-                    string uzivodpoved = Console.ReadLine();
+                     uzivodpoved = Console.ReadLine();
 
 
-                } while ();
-            }
+                } while (!zkontrolujvstup(uzivodpoved,o,out poleuzivatelskychindexov));
+                o.odpovede
+            };
             Console.ReadKey();
         }
-        private bool zkontrolujvstup(string uzivstup,otazka otazka)
+        private bool zkontrolujvstup(string uzivstup,otazka otazka,out int[] poleindexov)
         {
+            poleindexov = null;
+            int index;
             if(otazka is singleotazka)
             {
-                int indexodpovede;
-                bool jecislo = int.TryParse(uzivstup, out indexodpovede);
-                if (!jecislo)
-                {
-                    return false;
-                }
-                else
-                {
-                    return (indexodpovede > 0 && indexodpovede < otazka.Moznosti.Length);
-                }
+                bool res = jecisloajevindexe(uzivstup, otazka,out index);
+                poleindexov = new int[] { index };
+                return res;
             }
             else
             {
-                
+                string[] poleodpovediuziv = uzivstup.Split(' ');
+                poleindexov = new int[poleodpovediuziv.Length];
+                for(int i = 0; i < poleodpovediuziv.Length; i++)
+                {
+                    if (!jecisloajevindexe(poleodpovediuziv[i], otazka,out index)) return false;
+                    poleindexov[i] = index;
+                }
+                return true;
+            }
+        }
+        private bool jecisloajevindexe(string uzivatelskecislo,otazka otazka,out int index)
+        {
+            bool jecislo = int.TryParse(uzivatelskecislo, out index);
+            if (!jecislo)
+            {
+                return false;
+            }
+            else
+            {
+                return (index > 0 && index < otazka.Moznosti.Length);
             }
         }
         
